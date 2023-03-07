@@ -15,13 +15,13 @@ public class CharacterController : MonoBehaviour
         _inputVector = new Vector2(0, 0);
 
         if (Input.GetKey(KeyCode.W))
-            _inputVector.y = -1;
-         if (Input.GetKey(KeyCode.S))
             _inputVector.y = +1;
+         if (Input.GetKey(KeyCode.S))
+            _inputVector.y = -1;
          if (Input.GetKey(KeyCode.A))
-            _inputVector.x = +1;
-        if (Input.GetKey(KeyCode.D))
             _inputVector.x = -1;
+        if (Input.GetKey(KeyCode.D))
+            _inputVector.x = +1;
 
         _inputVector = _inputVector.normalized;
 
