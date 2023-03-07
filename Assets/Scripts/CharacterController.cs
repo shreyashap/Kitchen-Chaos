@@ -9,21 +9,14 @@ public class CharacterController : MonoBehaviour
     private Vector2 _inputVector;
     private Vector3 _moveDir;
     private bool _isWalking;
+
+    [SerializeField] private GameInput gameInput;
     // Update is called once per frame
     void Update()
     {
-        _inputVector = new Vector2(0, 0);
+        _inputVector = gameInput.GetMovementVector();
 
-        if (Input.GetKey(KeyCode.W))
-            _inputVector.y = +1;
-         if (Input.GetKey(KeyCode.S))
-            _inputVector.y = -1;
-         if (Input.GetKey(KeyCode.A))
-            _inputVector.x = -1;
-        if (Input.GetKey(KeyCode.D))
-            _inputVector.x = +1;
-
-        _inputVector = _inputVector.normalized;
+        
 
         _moveDir = new Vector3(_inputVector.x, 0, _inputVector.y);
         transform.position += _moveDir * _speed * Time.deltaTime;
